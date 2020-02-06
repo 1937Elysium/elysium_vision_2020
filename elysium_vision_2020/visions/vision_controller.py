@@ -1,4 +1,4 @@
-from ..configurations import *
+from elysium_vision_2020.connections import *
 
 visions = []
 
