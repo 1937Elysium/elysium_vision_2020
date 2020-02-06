@@ -1,4 +1,3 @@
-import ovl
 from ..configurations import *
 
 visions = []
