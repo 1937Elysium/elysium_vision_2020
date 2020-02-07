@@ -7,15 +7,14 @@ yellow = Color([22, 60, 60], [45, 255, 255])
 contour_filters = [area_filter(min_area=200), dec_area_sort()]
 image_filters = [ovl.gaussian_blur(kernel_size=(5, 5))]
 
-
 one_power_cell_director = Director(directing_function=center_directions,
                                    target_amount=1,
                                    failed_detection=9999)
 
-
 one_power_cell = Vision(camera=CAMERA,
                         threshold=yellow,
                         contour_filters=contour_filters,
+                        image_filters=image_filters,
                         connection=ROBOT_NETWORK_TABLES_CONNECTION,
                         director=one_power_cell_director)
 
