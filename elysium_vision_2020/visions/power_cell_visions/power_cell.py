@@ -1,7 +1,7 @@
 from ovl import *
-from copy import copy
 
 from elysium_vision_2020.connections import *
+from elysium_vision_2020.visions.power_cell_visions.two_power_cells import two_power_cell_director, two_power_cell
 
 yellow = Color([22, 60, 60], [45, 255, 255])
 contour_filters = [area_filter(min_area=200), dec_area_sort()]
@@ -12,17 +12,12 @@ one_power_cell_director = Director(directing_function=center_directions,
                                    target_amount=1,
                                    failed_detection=9999)
 
-two_power_cell_director = copy(one_power_cell_director)
-two_power_cell_director.target_amount = 2
 
 one_power_cell = Vision(camera=CAMERA,
                         threshold=yellow,
                         contour_filters=contour_filters,
-                        connection=ROBOT_NETWORK_TABLES_CONNECTION)
-two_power_cell = copy(one_power_cell)
-
-one_power_cell.director = one_power_cell_director
-two_power_cell.director = two_power_cell_director
+                        connection=ROBOT_NETWORK_TABLES_CONNECTION,
+                        director=one_power_cell_director)
 
 
 def power_cell_vision(power_cell, send_location):
