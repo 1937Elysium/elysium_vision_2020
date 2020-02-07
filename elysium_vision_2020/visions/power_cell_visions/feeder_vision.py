@@ -15,7 +15,7 @@ feeder_vision = Vision(camera=CAMERA,
                        threshold=green,
                        contour_filters=filters,
                        image_filters=image_filters,
-                    connection=ROBOT_NETWORK_TABLES_CONNECTION,
+                       connection=ROBOT_NETWORK_TABLES_CONNECTION,
                        director=feeder_director)
 
 if __name__ == '__main__':
