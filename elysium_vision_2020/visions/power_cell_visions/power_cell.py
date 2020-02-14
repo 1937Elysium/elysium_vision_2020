@@ -1,10 +1,11 @@
 from ovl import *
 
 from elysium_vision_2020.connections import *
-from elysium_vision_2020.visions.power_cell_visions.two_power_cells import two_power_cell_director, two_power_cell
 
 yellow = Color([22, 60, 60], [45, 255, 255])
+
 contour_filters = [area_filter(min_area=200), dec_area_sort()]
+
 image_filters = [ovl.gaussian_blur(kernel_size=(5, 5))]
 
 one_power_cell_director = Director(directing_function=center_directions,
